@@ -1,0 +1,96 @@
+body {
+    font-family: Verdana, sans-serif;
+    background-color: gold;
+    overflow-x: hidden;
+}
+
+#header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    height: 10vh;
+    padding: 5px;
+}
+
+#head-bar {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    background-color: rgb(197, 34, 34);
+    border-top: 2px darkred solid;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(197, 34, 34);
+    margin-top: 1.5vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+}
+
+.p-main {
+    color: black;
+}
+
+#dybala-img {
+    width: 100%;
+}
+
+.thumbnail {
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+
+.thumbnail::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    margin-top: 15px;
+    height: 60%;
+    background-color: darkred;
+    display: block;
+}
+
+.p-thumbnail {
+    margin-left: 20px;
+}
+
+.list {
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+
+.main-hr {
+    border-color: darkred;
+}
+
+li {
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
