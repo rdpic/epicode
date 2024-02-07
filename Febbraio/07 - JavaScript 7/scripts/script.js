@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         li.classList.add('task-item');
 
         const taskLabel = document.createElement('span');
-        taskLabel.textContent = taskText;
+        taskLabel.innerText = taskText;
 
         li.addEventListener('click', function() {
             li.classList.toggle('completed');
