@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Task List</h1>
+            <div class="task-input">
+                <input type="text" id="taskInput" value="" placeholder="Add new task" required>
+                <button id="addTaskBtn"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="error-message-div">
+                <p class="error-message" id="errorMessage">The field is empty. Please insert a task.</p>
+            </div>
+            <div class="ul-container">
+                <ul id="taskList"></ul>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/script.js"></script>
+    <script src="https://kit.fontawesome.com/004578e4a9.js" crossorigin="anonymous"></script>
+</body>
+</html>
