@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #654ea3, #eaafc8);
+    width: 100%;
+    overflow: hidden;
+}
+  
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px; 
+}
+  
+.post-it {
+    flex: 1 0 calc(25% - 50px);
+    height: 250px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Indie Flower', sans-serif;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, z-index 0.3s;
+    z-index: 1;
+    position: relative;
+    animation: pop-in 0.5s ease;
+}
+
+#one {
+    background: linear-gradient(to bottom right, #feff9c, #a7e9af);
+    transform: rotateZ(-5deg);
+    animation-delay: 0.1s;
+}
+
+#two {
+    background: linear-gradient(to bottom right, #ff9c9e, #fecfef);
+    transform: rotateZ(4deg);
+    animation-delay: 0.2s;
+}
+
+#three {
+    background: linear-gradient(to bottom right, #fbd786, #f7797d);
+    transform: rotateZ(-3deg);
+    animation-delay: 0.3s;
+}
+
+#four {
+    background: linear-gradient(to bottom right, #9890e3, #b1f4cf);
+    transform: rotateZ(2deg);
+    animation-delay: 0.4s;
+}
+
+#five {
+    background: linear-gradient(to bottom right, #9890e3, #b1f4cf);
+    transform: rotateZ(7deg);
+    animation-delay: 0.5s;
+}
+
+#six {
+    background: linear-gradient(to bottom right, #fbd786, #f7797d);
+    transform: rotateZ(-6deg);
+    animation-delay: 0.6s;
+}
+
+#seven {
+    background: linear-gradient(to bottom right, #ff9c9e, #fecfef);
+    transform: rotateZ(8deg);
+    animation-delay: 0.7s;
+}
+
+#eight {
+    background: linear-gradient(to bottom right, #feff9c, #a7e9af);
+    transform: rotateZ(-1deg);
+    animation-delay: 0.8s;
+}
+  
+.post-it:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+#one:hover { transform: scale(1.2) rotateZ(0deg); }
+#two:hover { transform: scale(1.2) rotateZ(0deg); }
+#three:hover { transform: scale(1.2) rotateZ(0deg); }
+#four:hover { transform: scale(1.2) rotateZ(0deg); }
+#five:hover { transform: scale(1.2) rotateZ(0deg); }
+#six:hover { transform: scale(1.2) rotateZ(0deg); }
+#seven:hover { transform: scale(1.2) rotateZ(0deg); }
+#eight:hover { transform: scale(1.2) rotateZ(0deg); }
+
+@keyframes pop-in {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
