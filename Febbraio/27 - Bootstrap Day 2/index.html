@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenzia di Viaggi</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Agency Logo" style="width:100px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Welcome Summer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Last Minute</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container bg-light p-5 rounded-lg my-5 shadow-sm">
+        <div class="container">
+            <h1 class="display-4" style="color: #697679;">Dream Destinations</h1>
+            <p class="lead">Your gateway to a perfect holiday experience.</p>
+            <p class="fst-italic" style="font-style: italic;">
+                Explore the world with our curated packages and best deals.
+            </p>
+            <button class="btn text-white fw-bold" style="font-weight: bold; background-color: #11CAF1;">
+                Book Now
+            </button>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+            <div class="col">
+                <div class="card h-100 border-2" style="border: #11CAF1 solid 2px;">
+                    <img src="https://a.cdn-hotels.com/gdcs/production121/d137/d4030d17-700f-4fd1-9c05-4b1742c7a6c3.jpg?impolicy=fcrop&w=800&h=533&q=medium"
+                        class="card-img-top" alt="Destination 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Honolulu</h5>
+                        <p class="card-text">
+                            Honolulu, in southeast Oahu, is Hawaii's state capital.
+                            The imposing Aloha Tower lighthouse greets arriving visitors with its Gothic architecture,
+                            while Ala Moana Park, with its serene beach, offers a break from the city's bustle.
+                        </p>
+                        <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-2" style="border: #11CAF1 solid 2px;">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/87/06/1f/caption.jpg?w=1200&h=-1&s=1&cx=1000&cy=666&chk=v1_e84ea7206e1c38cd3a11"
+                        class="card-img-top" alt="Destination 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Reykjavik</h5>
+                        <p class="card-text">
+                            Reykjavík is believed to be the location of the first permanent settlement in Iceland,
+                            which, according to Landnámabók,
+                            was established by Ingólfr Arnarson in AD 874.
+                        </p>
+                        <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-2" style="border: #11CAF1 solid 2px;">
+                    <img src="https://a.cdn-hotels.com/gdcs/production125/d882/347f73d7-bd57-44cf-b3fa-0837c96cb193.jpg"
+                        class="card-img-top" alt="Destination 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Geneva</h5>
+                        <p class="card-text">
+                            Situated in the southwest of Switzerland, where the Rhône exits Lake Geneva, it is the
+                            capital of the Republic and Canton of Geneva,
+                            and a centre for international diplomacy. Geneva hosts the highest number of international
+                            organizations in the world.
+                        </p>
+                        <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-lg-none d-xl-block">
+                <div class="card h-100 border-2" style="border: #11CAF1 solid 2px;">
+                    <img src="https://withlocals-com-res.cloudinary.com/image/upload/v1687270165/destinations/Toronto/Day%20Trip/AdobeStock_35443759.jpg"
+                        class="card-img-top" alt="Destination 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Niagara Falls</h5>
+                        <p class="card-text">
+                            Niagara Falls harbors a history dating back thousands of years. The falls themselves were
+                            formed by the Wisconsin Glacier during the ice age,
+                            and the area was settled by numerous groups, including the Iroquois Native American nations,
+                            the French and the British.
+                            Visitors can learn more about Niagara Falls' history at the several museums and historical
+                            sites in the area, including Old Fort Niagara.
+                        </p>
+                        <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="welcome-summer" class="py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-6 g-4">
+                <div class="col mb-3">
+                    <div class="card shadow h-100 border-0">
+                        <img src="https://a.cdn-hotels.com/gdcs/production121/d137/d4030d17-700f-4fd1-9c05-4b1742c7a6c3.jpg?impolicy=fcrop&w=800&h=533&q=medium"
+                            class="card-img-top" alt="Destination">
+                        <div class="card-body">
+                            <h5 class="card-title">Honolulu</h5>
+                            <p class="card-text">
+                                Honolulu, in southeast Oahu, is Hawaii's state capital.
+                                The imposing Aloha Tower lighthouse greets arriving visitors with its Gothic
+                                architecture,
+                                while Ala Moana Park, with its serene beach, offers a break from the city's bustle.
+                            </p>
+                            <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card shadow h-100 border-0">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/87/06/1f/caption.jpg?w=1200&h=-1&s=1&cx=1000&cy=666&chk=v1_e84ea7206e1c38cd3a11"
+                            class="card-img-top" alt="Destination">
+                        <div class="card-body">
+                            <h5 class="card-title">Reykjavik</h5>
+                            <p class="card-text">
+                                Reykjavík is believed to be the location of the first permanent settlement in Iceland,
+                                which, according to Landnámabók,
+                                was established by Ingólfr Arnarson in AD 874.
+                            </p>
+                            <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card shadow h-100 border-0">
+                        <img src="https://a.cdn-hotels.com/gdcs/production125/d882/347f73d7-bd57-44cf-b3fa-0837c96cb193.jpg"
+                            class="card-img-top" alt="Destination">
+                        <div class="card-body">
+                            <h5 class="card-title">Geneva</h5>
+                            <p class="card-text">
+                                Situated in the southwest of Switzerland, where the Rhône exits Lake Geneva, it is the
+                                capital of the Republic and Canton of Geneva,
+                                and a centre for international diplomacy. Geneva hosts the highest number of
+                                international
+                                organizations in the world.
+                            </p>
+                            <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card shadow h-100 border-0">
+                        <img src="https://withlocals-com-res.cloudinary.com/image/upload/v1687270165/destinations/Toronto/Day%20Trip/AdobeStock_35443759.jpg"
+                            class="card-img-top" alt="Destination">
+                        <div class="card-body">
+                            <h5 class="card-title">Niagara Falls</h5>
+                            <p class="card-text">
+                                Niagara Falls harbors a history dating back thousands of years. The falls themselves
+                                were
+                                formed by the Wisconsin Glacier during the ice age,
+                                and the area was settled by numerous groups, including the Iroquois Native American
+                                nations,
+                                the French and the British.
+                                Visitors can learn more about Niagara Falls' history at the several museums and
+                                historical
+                                sites in the area, including Old Fort Niagara.
+                            </p>
+                            <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card shadow h-100 border-0">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/aa/b1/79/caption.jpg?w=1200&h=-1&s=1"
+                            class="card-img-top" alt="Destination">
+                        <div class="card-body">
+                            <h5 class="card-title">New York City</h5>
+                            <p class="card-text">
+                                New York, often called New York City or simply NYC, is the most populous city in the
+                                United States,
+                                located at the southern tip of New York State on one of the world's largest natural
+                                harbors.
+                                The city comprises five boroughs, each of which is coextensive with a respective county.
+                                It is a global city and a cultural, financial, high-tech, entertainment, and media
+                                center with a
+                                significant influence on commerce, health care, scientific output, life sciences,
+                                research, technology,
+                                education, politics, tourism, dining, art, fashion, and sports.
+                            </p>
+                            <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card shadow h-100 border-0">
+                        <img src="https://www.turismoroma.it/sites/default/files/Roma%20in%20breve.jpg"
+                            class="card-img-top" alt="Destination">
+                        <div class="card-body">
+                            <h5 class="card-title">Rome</h5>
+                            <p class="card-text">
+                                Rome today is one of the most important tourist destinations of the world, due to the
+                                incalculable immensity of its archaeological
+                                and artistic treasures, as well as for the charm of its unique traditions, the beauty of
+                                its panoramic views, and the majesty of
+                                its magnificent "villas" (parks). Among the most significant resources are the many
+                                museums - Capitoline Museums, the Vatican Museums
+                                and the Galleria Borghese and others dedicated to modern and contemporary art -
+                                aqueducts, fountains, churches, palaces,
+                                historical buildings, the monuments and ruins of the Roman Forum, and the Catacombs.
+                            </p>
+                            <a href="#" class="btn" style="background-color: #11CAF1;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deal-of-the-day" class="py-5 d-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <h2 class="deal-title mb-3">Deal of the Month</h2>
+                <div class="col-md-8">
+                    <img src="https://www.turismoroma.it/sites/default/files/Roma%20in%20breve.jpg"
+                        class="img-fluid rounded shadow-sm" alt="Offer">
+                </div>
+                <div class="col-md-4">
+                    <div class="deal-content">
+                        <h2 class="deal-title display-5 mb-3">Rome</h2>
+                        <p class="deal-dates mb-3"><code>01/02/2024 - 29/02/2024</code></p>
+                        <p class="lead deal-price mb-3">$999</p>
+                        <span class="badge bg-dark">BEST OFFER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="last-minute" class="py-5">
+        <div class="container text-center">
+            <h2 class="text-left mb-4">Last Minute</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://a.cdn-hotels.com/gdcs/production121/d137/d4030d17-700f-4fd1-9c05-4b1742c7a6c3.jpg?impolicy=fcrop&w=800&h=533&q=medium"
+                        class="img-fluid rounded shadow" alt="Destination 1" style="height: 100%;">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/87/06/1f/caption.jpg?w=1200&h=-1&s=1&cx=1000&cy=666&chk=v1_e84ea7206e1c38cd3a11"
+                        class="img-fluid rounded shadow" alt="Destination 2" style="height: 100%;">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://a.cdn-hotels.com/gdcs/production125/d882/347f73d7-bd57-44cf-b3fa-0837c96cb193.jpg"
+                        class="img-fluid rounded shadow" alt="Destination 3" style="height: 100%;">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://withlocals-com-res.cloudinary.com/image/upload/v1687270165/destinations/Toronto/Day%20Trip/AdobeStock_35443759.jpg"
+                        class="img-fluid rounded shadow" alt="Destination 4" style="height: 100%;">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/aa/b1/79/caption.jpg?w=1200&h=-1&s=1"
+                        class="img-fluid rounded shadow" alt="Destination 5" style="height: 100%;">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="https://www.turismoroma.it/sites/default/files/Roma%20in%20breve.jpg"
+                        class="img-fluid rounded shadow" alt="Destination 6" style="height: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="review-section" class="container py-5">
+        <h2 class="text-center mb-4">What People Say About Us</h2>
+        <div class="row">
+            <div class="col-12 d-flex mb-4">
+                <img src="https://cdn4.iconfinder.com/data/icons/man-user-human-person-business-profile-avatar/100/20-1User_13-512.png"
+                    class="rounded-circle border"
+                    style="border-color: #11CAF1; border-width: 2px; width: 50px; height: 50px;" alt="User">
+                <div class="ml-4 align-items-center">
+                    <h5 class="mb-0">Username</h5>
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc mi, tempus
+                        at mauris sit amet, auctor porttitor quam. Etiam ut odio luctus, finibus sapien sed, posuere
+                        metus. Proin vitae scelerisque justo, et tempus ligula. Aenean porttitor justo odio, vel
+                        pharetra est convallis a. Donec tempor elit sit amet lacinia cursus. Proin vulputate finibus
+                        risus eu venenatis. Cras vehicula, nisi at vulputate fringilla, erat dui fermentum ligula,
+                        eu pellentesque justo metus non magna.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex mb-4">
+                <img src="https://cdn4.iconfinder.com/data/icons/man-user-human-person-business-profile-avatar/100/20-1User_13-512.png"
+                    class="rounded-circle border"
+                    style="border-color: #11CAF1; border-width: 2px; width: 50px; height: 50px;" alt="User">
+                <div class="ml-4 align-items-center">
+                    <h5 class="mb-0">Username</h5>
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc mi, tempus
+                        at mauris sit amet, auctor porttitor quam. Etiam ut odio luctus, finibus sapien sed, posuere
+                        metus. Proin vitae scelerisque justo, et tempus ligula. Aenean porttitor justo odio, vel
+                        pharetra est convallis a. Donec tempor elit sit amet lacinia cursus. Proin vulputate finibus
+                        risus eu venenatis. Cras vehicula, nisi at vulputate fringilla, erat dui fermentum ligula,
+                        eu pellentesque justo metus non magna.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex mb-4">
+                <img src="https://cdn4.iconfinder.com/data/icons/man-user-human-person-business-profile-avatar/100/20-1User_13-512.png"
+                    class="rounded-circle border"
+                    style="border-color: #11CAF1; border-width: 2px; width: 50px; height: 50px;" alt="User">
+                <div class="ml-4 align-items-center">
+                    <h5 class="mb-0">Username</h5>
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc mi, tempus
+                        at mauris sit amet, auctor porttitor quam. Etiam ut odio luctus, finibus sapien sed, posuere
+                        metus. Proin vitae scelerisque justo, et tempus ligula. Aenean porttitor justo odio, vel
+                        pharetra est convallis a. Donec tempor elit sit amet lacinia cursus. Proin vulputate finibus
+                        risus eu venenatis. Cras vehicula, nisi at vulputate fringilla, erat dui fermentum ligula,
+                        eu pellentesque justo metus non magna.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="actions" class="container py-5">
+        <button id="countTripsBtn" class="btn btn-info">Trips Counter</button>
+        <button id="removeCardsBtn" class="btn btn-danger">Remove all Cards</button>
+    </section>
+
+    <footer class="bg-dark text-light py-3">
+        <div class="container text-center">
+            <button id="contactBtn" class="btn btn-outline-light m-3" data-bs-toggle="modal"
+                data-bs-target="#contactModal">Contact
+                Us</button>
+            <div>
+                <p>© 2024 Dream Destinasions LTD. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contattaci</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="contactForm">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

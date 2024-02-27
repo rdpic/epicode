@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         randomM.classList.toggle('hidden');
 
-        const randomTime = Math.random() * 1000 + 300;
+        const randomTime = Math.random() * 300 + 100;
         setTimeout(toggleRandomM, randomTime);
     }
 
