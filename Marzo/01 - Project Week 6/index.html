@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img id="logo" src="assets/img/netflix_logo.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">TV Shows</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Recently Added</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">My List</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <button id="search-btn" class="btn" type="button" data-bs-toggle="modal"
+                            data-bs-target="#searchModal">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <a class="nav-link" href="#">KIDS</a>
+                        <i class="bi bi-bell-fill"></i>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="profileDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img id="profile-pic" src="assets/img/profilepic.png" class="rounded-circle me-2">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img id="profile-pic-small" src="assets/img/profilepic.png" class="rounded-circle me-2">
+                                        Riccardo Del Piccolo
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Manage Profiles</a></li>
+                                <li><a class="dropdown-item" href="profile.html">Account</a></li>
+                                <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Signout Netflix</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-dark text-white">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="d-flex">
+                                        <input class="form-control me-2" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-outline-light" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid mt-3">
+            <div class="d-flex align-items-center mb-3">
+                <h2 class="h2">TV Shows</h2>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="genreDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Genres&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="genreDropdownButton">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Comedy</a></li>
+                        <li><a class="dropdown-item" href="#">Drama</a></li>
+                        <li><a class="dropdown-item" href="#">Sci-Fi</a></li>
+                        <li><a class="dropdown-item" href="#">Romance</a></li>
+                        <li><a class="dropdown-item" href="#">Fantasy</a></li>
+                        <li><a class="dropdown-item" href="#">Mystery</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h3 class="h5 mt-3">Trending Now</h3>
+                <div id="trendingCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex">
+                                <div class="card">
+                                    <img src="assets/img/media/media0.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media1.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media2.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media3.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media4.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media5.webp" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex">
+                                <div class="card">
+                                    <img src="assets/img/media/media6.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media7.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media8.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media9.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media10.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media11.jpg" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#trendingCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#trendingCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h3 class="h5 mt-3">Watch It Again</h3>
+                <div id="watchAgainCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex">
+                                <div class="card">
+                                    <img src="assets/img/media/media12.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media13.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media14.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media15.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media16.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media17.jpg" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex">
+                                <div class="card">
+                                    <img src="assets/img/media/media18.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media19.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media20.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media21.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media22.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media23.webp" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#watchAgainCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#watchAgainCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- New Releases -->
+            <div class="mb-4">
+                <h3 class="h5 mb-3">New Releases</h3>
+                <div id="newReleasesCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex">
+                                <div class="card">
+                                    <img src="assets/img/media/media24.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media25.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media26.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media27.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media28.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media29.jpg" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex">
+                                <div class="card">
+                                    <img src="assets/img/media/media30.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media31.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media32.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media5.webp" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media17.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card">
+                                    <img src="assets/img/media/media9.jpg" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#newReleasesCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#newReleasesCarousel" data-bs-slide="next"> 
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container-fluid py-3">
+            <div class="row">
+                <div class="col d-flex justify-content-center justify-content-md-start">
+                    <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="me-2"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6 col-md-3 mb-3">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Audio and Subtitles</a></li>
+                        <li><a href="#">Media Center</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 mb-3">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Audio Description</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Legal Notices</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 mb-3">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 mb-3">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Corporate Information</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col py-3">
+                    <small>Service Code</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col py-1">
+                    <small>© 1997-2024 Netflix, Inc.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="assets/scripts/script.js"></script>
+</body>
+
+</html>
