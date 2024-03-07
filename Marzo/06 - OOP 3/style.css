@@ -1,0 +1,32 @@
+body { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa; 
+}
+
+.card { 
+    transition: transform .2s; 
+}
+
+.card:hover { 
+    transform: scale(1.03); 
+}
+
+.cart-btn { 
+    margin-top: 15px; 
+}
+
+.cart { 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+}
+
+.modal-content { 
+    overflow-y: auto; 
+}
+
+.modal {
+    z-index: 1;
+}
