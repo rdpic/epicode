@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.site-header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #555;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 300;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+#editProductBtn {
+    display: none;
+}
+
+#deleteProductBtn {
+    display: none;
+}
+
+.btn {
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loadingIndicator::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 4px solid #fff;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.btn-dark {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#productDetailContainer {
+    width: 50%;
+}
+
+#productDetailContainer .card {
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#productDetailContainer .card-body {
+    padding: 20px;
+}
+
+#productDetailContainer .card-title {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#productDetailContainer .card-text {
+    font-size: 16px;
+    color: #555;
+}
+
+#productDetailContainer .btn {
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+#productDetailContainer .card-body .btn {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.btn-dark {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}
