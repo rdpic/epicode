@@ -1,49 +1,41 @@
-class User {
-    firstName: string;
-    lastName: string;
-    private credit: number;
-    private callsNumber: number;
-    private readonly callCost: number = 0.20;
-
-    constructor(firstName: string, lastName: string) {
+var User = /** @class */ (function () {
+    function User(firstName, lastName) {
+        this.callCost = 0.20;
         this.firstName = firstName;
         this.lastName = lastName;
         this.credit = 0;
         this.callsNumber = 0;
     }
-
-    topUp(amount: number): void {
+    User.prototype.topUp = function (amount) {
         this.credit += amount;
-    }
-
-    call(minutes: number): void {
-        const costoTotale = minutes * this.callCost;
+    };
+    User.prototype.call = function (minutes) {
+        var costoTotale = minutes * this.callCost;
         if (this.credit >= costoTotale) {
             this.credit -= costoTotale;
             this.callsNumber++;
-        } else {
+        }
+        else {
             throw new Error('Insufficient credit.');
         }
-    }
-
-    call404(): number {
+    };
+    User.prototype.call404 = function () {
         return this.credit;
-    }
-
-    getCallsNumber(): number {
+    };
+    User.prototype.getCallsNumber = function () {
         return this.callsNumber;
-    }
-
-    resetCalls(): void {
+    };
+    User.prototype.resetCalls = function () {
         this.callsNumber = 0;
-    }
-}
-
-const user = new User('Riccardo', 'Del Piccolo');
+    };
+    return User;
+}());
+var user = new User('Riccardo', 'Del Piccolo');
 user.topUp(1);
 try {
     user.call(10);
-} catch (error) {
+}
+catch (error) {
     console.error(error.message);
 }
 console.log(user.call404());
