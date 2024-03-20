@@ -1,0 +1,14 @@
+<div class="container mt-3">
+    <div class="featured-post">
+        <h2>{{ featuredPost?.title }}</h2>
+        <p>{{ featuredPost?.body }}</p>
+    </div>
+
+    <div class="random-posts mt-4">
+        <h3>Potrebbero piacerti questi post:</h3>
+        <div *ngFor="let post of randomPosts" class="mt-2">
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.body }}</p>
+        </div>
+    </div>
+</div>
