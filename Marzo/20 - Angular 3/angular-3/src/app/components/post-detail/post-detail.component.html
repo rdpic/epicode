@@ -1,1 +1,11 @@
-<p>post-detail works!</p>
+<div *ngIf="post" class="post-detail">
+    <h2 class="post-title">{{ post.title }}</h2>
+    <p class="post-body">{{ post.body }}</p>
+    <div class="post-tags">
+        <span class="tag" *ngFor="let tag of post.tags">{{ tag }}</span>
+    </div>
+    <button (click)="goBack()">Indietro</button>
+</div>
+<div *ngIf="!post">
+    <p>Caricamento del post...</p>
+</div>

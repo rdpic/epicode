@@ -1,1 +1,5 @@
-<p>active-posts works!</p>
+<div *ngFor="let post of posts">
+    <a [routerLink]="['/post', post.id]">
+      <h4>{{ post.title }}</h4>
+    </a>
+</div>

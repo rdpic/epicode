@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../app/models/post.interface';
-import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
     featuredPost!: Post;
     randomPosts: Post[] = [];
 
-    async ngOnInit(): Promise<void> {
+    async ngOnInit() {
         try {
             const response = await fetch('/assets/db.json');
             const data = await response.json();

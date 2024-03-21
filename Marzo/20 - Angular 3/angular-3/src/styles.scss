@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+    margin-top: 1rem;
+
+    .featured-post {
+        margin-bottom: 2rem;
+
+        h2 {
+            color: #0275d8;
+            margin-bottom: .5rem;
+        }
+
+        p {
+            color: #5a5a5a;
+            font-size: 1rem;
+        }
+    }
+
+    .random-posts {
+        margin-top: 2rem;
+
+        h3 {
+            color: #5cb85c;
+            margin-bottom: 1rem;
+        }
+
+        .mt-2 {
+            margin-top: .5rem;
+        }
+
+        h4 {
+            color: #d9534f;
+            margin-bottom: .25rem;
+        }
+
+        p {
+            color: #292b2c;
+            font-size: .85rem;
+        }
+    }
+}
