@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Welcome to AutoRent</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>Featured Cars</h2>
+        </div>
+        <div class="col-md-6" *ngFor="let car of featuredCars">
+            <div class="card" [ngClass]="getAvailabilityClass(car.available)">
+                <img class="card-img-top" [src]="car.modelImage" [alt]="car.model">
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+                    <img class="card-img-logo" [src]="car.brandLogo">
+                    <p class="card-text">{{ car.year }} - ${{ car.price }}</p>
+                    <a [routerLink]="['/brand', car.brand]" class="btn btn-primary">View {{ car.brand }} Models</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
