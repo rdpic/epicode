@@ -1,0 +1,7 @@
+<div *ngFor="let todo of completedTodos" [ngClass]="{'todo-item': true, 'completed': todo.completed}">
+    <label class="custom-checkbox">
+        <input type="checkbox" class="real-checkbox" checked [attr.disabled]="true">
+        <span class="custom-box"></span>
+        {{ todo.todo }}
+    </label>
+</div>

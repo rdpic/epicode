@@ -1,0 +1,25 @@
+<div *ngFor="let user of users">
+    <div class="card user-card mb-3 shadow-sm">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ user.image }}" class="img-fluid rounded-start" alt="{{ user.firstName }} {{ user.lastName }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+                    <p class="card-text"><small class="text-muted">{{ user.email }}</small></p>
+                    <p class="card-text"><small class="text-muted">To-dos:</small></p>
+                    <ul>
+                        <div *ngFor="let todo of userTodos[user.id]" [ngClass]="{'todo-item': true, 'completed': todo.completed}">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="real-checkbox" [checked]="todo.completed" (change)="toggleCompletion(todo)">
+                                <span class="custom-box"></span>
+                                {{ todo.todo }}
+                            </label>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

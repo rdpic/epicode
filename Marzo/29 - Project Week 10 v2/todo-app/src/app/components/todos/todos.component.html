@@ -1,0 +1,11 @@
+<div class="search-container">
+    <input type="text" [formControl]="searchControl" placeholder="Search to-dos by author..." class="search-input">
+</div>
+
+<div *ngFor="let todo of filteredTodos | async" [ngClass]="{'todo-item': true, 'completed': todo.completed}">
+    <label class="custom-checkbox">
+        <input type="checkbox" class="real-checkbox" [checked]="todo.completed" (change)="toggleCompletion(todo)">
+        <span class="custom-box"></span>
+        {{ todo.todo }} by {{ getUserFullName(todo.userId) }}
+    </label>
+</div>
