@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Your Favorites</h2>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let favorite of favorites">
+            {{ favorite.movie.title }}
+            <button (click)="toggleFavorite(favorite.movie.id)" class="btn btn-secondary btn-sm float-right">
+                {{ isFavorite(favorite.movie.id) ? 'Remove from Favorites' : 'Add to Favorites' }}
+            </button>
+        </li>
+    </ul>
+</div>
