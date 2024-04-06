@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
+import { forkJoin, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
+import { MovieService } from '../../services/movie.service';
+import { Movie } from 'src/app/models/movie.interface';
 
 @Component({
     selector: 'app-favorites',
@@ -8,56 +11,34 @@ import { AuthService } from '../../services/auth.service';
     styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
-    favorites: any[] = [];
-    userId: number | null = null;
+    favorites: Movie[] = [];
 
     constructor(
-        private movieService: MovieService,
-        private authService: AuthService
+        private authService: AuthService,
+        private movieService: MovieService
     ) { }
 
     ngOnInit() {
-        this.authService.loggedStatus.subscribe((isLoggedIn) => {
-            if (isLoggedIn) {
-                const loginData = this.getLoginData();
-                if (loginData) {
-                    this.userId = loginData.user.id;
-                    this.getFavorites();
-                }
-            } else {
-                this.userId = null;
+        this.authService.currentUser.subscribe((auth) => {
+            if (auth && auth.user) {
+                this.loadUserFavorites(auth.user.id);
             }
         });
     }
 
-    private getLoginData() {
-        const userJson = localStorage.getItem('user');
-        return userJson ? JSON.parse(userJson) : null;
-    }
-
-    getFavorites(): void {
-        if (this.userId) {
-            this.movieService.getAllFavorites(this.userId)
-                .subscribe(favorites => this.favorites = favorites);
-        }
-    }
-
-    toggleFavorite(movieId: number): void {
-        if (!this.userId) return;
-
-        const existingFavorite = this.favorites.find(f => f.movieId === movieId);
-        if (existingFavorite) {
-            this.movieService.removeFavorite(existingFavorite.id).subscribe(() => {
-                this.getFavorites();
+    loadUserFavorites(userId: string): void {
+        this.movieService.getAllFavorites(userId).subscribe(favorites => {
+            const requests = favorites.map(fav => 
+                this.movieService.getMovieById(fav.movieId).pipe(
+                    catchError(error => {
+                        console.error(`Error fetching movie details for ID ${fav.movieId}: ${error}`);
+                        return of(null);
+                    })
+                )
+            );
+            forkJoin(requests).subscribe(results => {
+                this.favorites = results.filter(result => result !== null) as Movie[];
             });
-        } else {
-            this.movieService.addFavorite(movieId, this.userId).subscribe(() => {
-                this.getFavorites();
-            });
-        }
-    }
-
-    isFavorite(movieId: number): boolean {
-        return this.favorites.some(f => f.movieId === movieId);
+        });
     }
 }

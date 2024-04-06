@@ -24,12 +24,16 @@
             <input type="password" id="password" class="form-control" formControlName="password">
             <div *ngIf="user.controls['password'].invalid && user.controls['password'].touched"
                 class="alert alert-danger">
-                Password must match and meet the criteria.
+                Password must meet the criteria.
             </div>
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" [disabled]="user.invalid">Register</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!user.valid">Register</button>
+        </div>
+
+        <div class="link-container">
+            <a routerLink="/login">Are you already a user? Go to the login page.</a>
         </div>
 
     </form>

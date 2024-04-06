@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  srvr: "http://localhost:3000/"
+  srvr: 'http://localhost:4201/',
+  imgApi: 'https://image.tmdb.org/t/p/w500/'
 };
 
 /*

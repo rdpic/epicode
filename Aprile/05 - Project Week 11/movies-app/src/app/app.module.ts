@@ -9,6 +9,10 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { GenresFilterPipe } from './pipes/genresFilter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 export function tokenGetter() {
 	return localStorage.getItem("access_token");
@@ -21,19 +25,23 @@ export function tokenGetter() {
 		UsersListComponent,
 		FavoritesComponent,
   		NavbarComponent,
+		GenresFilterPipe,
+  MovieDetailsComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
 		ReactiveFormsModule,
+		MatSnackBarModule,
 		JwtModule.forRoot({
 			config: {
 				tokenGetter: tokenGetter,
-				allowedDomains: ["localhost:3000", "localhost:4200"],
+				allowedDomains: ["localhost:3000", "localhost:4200", "localhost:4201"],
 				disallowedRoutes: [""],
 			},
 		}),
+  BrowserAnimationsModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

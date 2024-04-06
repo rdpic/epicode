@@ -16,6 +16,23 @@
       "id": "deaf",
       "email": "dario@dario.com",
       "password": "$2a$10$ZLY63quWnMVo0lO951uFdOJRfUxeo8U6YJ/Cue06Vgp4Ad8S/CjaC"
+    },
+    {
+      "id": "e118",
+      "email": "dario@dario.com",
+      "password": "$2a$10$ZLY63quWnMVo0lO951uFdOJRfUxeo8U6YJ/Cue06Vgp4Ad8S/CjaC"
+    },
+    {
+      "email": "riccardodelpiccolo1@gmail.com",
+      "password": "$2a$10$L22eDOu62DFYNbmxO6ZOP.L6WGoQbiUlhE2bPASWoEkbalAk19rKC",
+      "name": "Riccardo Del Piccolo",
+      "id": "B54Vi8Z"
+    },
+    {
+      "email": "riccardodelpiccolo2@gmail.com",
+      "password": "$2a$10$91xuK8R8PNPDHsWBliJ9N.Bz1qB9C29JUM39yAcX6V2gmGp.n/mEu",
+      "name": "Riccardo Del Piccolo",
+      "id": "gc2DKED"
     }
   ],
   "favorites": [
@@ -48,6 +65,11 @@
       "userId": 2,
       "movieId": 615457,
       "id": "27"
+    },
+    {
+      "userId": "B54Vi8Z",
+      "movieId": "567189",
+      "id": "lHYyHfc"
     }
   ],
   "genres": [

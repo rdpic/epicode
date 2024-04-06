@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms"
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -15,10 +16,16 @@ export class RegisterComponent {
         password: new FormControl("", [Validators.required]),
     })
 
-    constructor(private authSrv: AuthService) { }
+    constructor(private authSrv: AuthService, private router: Router) { }
 
-    submitForm(form: FormGroup) {
-        this.authSrv.register(form.value).subscribe(res => console.log(res))
+    submitForm(user: FormGroup) {
+        try {
+            this.authSrv.register(user.value).subscribe(res => console.log(res))
+            alert('You have registered!')
+            this.router.navigate(['/login']) 
+        } catch (error) {
+            console.error(error)
+        }
     }
 
 }

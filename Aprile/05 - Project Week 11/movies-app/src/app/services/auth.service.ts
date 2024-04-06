@@ -1,118 +1,88 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { Auth, LoginData, SignUp } from '../models/auth.model';
+import { Auth } from '../models/auth.model';
 import { environment } from '../environments/environment';
+import { User } from '../models/user.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    private isLogged$ = new BehaviorSubject<boolean>(this.hasToken());
-    loggedStatus = this.isLogged$.asObservable();
+    private srvr = environment.srvr;
+    private jwtHelper = new JwtHelperService();
 
-    constructor(private http: HttpClient, private router: Router, private jwtSrv: JwtHelperService) { }
+    private isLogged$ = new BehaviorSubject<Auth | null>(null);
+    currentUser = this.isLogged$.asObservable();
+    private timeout!: any;
 
-    login(cred: Auth): Observable<LoginData> {
-        return this.http.get<any[]>(`${environment.srvr}users?email=${cred.email}&password=${cred.password}`).pipe(
-            map(users => {
-                const user = users[0];
-                if (user) {
-                    const mockToken = 'mockedJWTToken';
-                    localStorage.setItem("user", JSON.stringify({ user, accessToken: mockToken }));
-                    this.isLogged$.next(true);
-                    alert("Logged in!");
-                    this.router.navigate(['/movies-list']);
-                    return { user, accessToken: mockToken };
-                } else {
-                    alert("Login failed.");
-                    throw new Error("Login failed.");
-                }
-            }),
-            catchError(error => {
-                console.error("Login error: ", error);
-                return throwError(() => new Error('Login failed due to error: ' + error.message));
-            })
-        );
-    }
+    constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
-    /* login(cred: Auth): Observable<LoginData> {
-        return this.http.post<any>(`${environment.srvr}users`, cred).pipe(
-            tap((res) => {
-                console.log("Received response: ", res); // Check the whole response structure
-                const token = res.accessToken; // Adjust according to the actual path
-                if (token && this.isJwt(token)) {
-                    localStorage.setItem("user", JSON.stringify({ ...res, accessToken: token }));
-                    this.isLogged$.next(true);
-                    this.router.navigate(['/']); // Adjust navigation as needed
-                } else {
-                    throw new Error("Invalid token received.");
-                }
-            }),
-            catchError(error => {
-                console.error("Login error: ", error);
-                return throwError(() => new Error('Login failed due to error: ' + error.message));
-            })
-        );
-    } */
-
-    logout() {
-        localStorage.removeItem("user")
-        this.isLogged$.next(false)
-        this.router.navigate(['/login'])
-    }
-
-    register(formData: SignUp) {
-        return this.http.post(`${environment.srvr}users`, formData).pipe(tap((res) => {
+    register(cred: { username: string, password: string, email: string }) {
+        return this.http.post(`${this.srvr}register`, cred).pipe(tap((res) => {
             console.log(res)
         }))
     }
 
-    currentLoggedUser(): Observable<SignUp[]> | undefined {
-        const data = this.getLoginData;
+    login(cred: User) {
+        return this.http.post<Auth>(`${this.srvr}login`, cred).pipe(
+            tap((res) => {
+                console.log(res);
+                this.isLogged$.next(res);
+                localStorage.setItem('user', JSON.stringify(res));
+                this.router.navigate(['/movies-list']);
+                this.autoLogout(res);
+            }),
+            catchError((error) => {
+                this.snackBar.open('Login failed: ' + (error.error?.message || 'Unknown error'), 'Close', {
+                    duration: 3000,
+                });
 
-        if (data) {
-            const email = data.user.email
-            return this.http.get<SignUp[]>(`${environment.srvr}users?email=${email}`)
-        } else {
-            this.isLogged$.next(false)
+                return throwError(() => new Error('Login failed'));
+            })
+        );
+    }
+
+    logout() {
+        this.isLogged$.next(null);
+        localStorage.removeItem('user');
+        this.snackBar.open('Logged out!', 'Close', {
+            duration: 4000,
+        });
+        this.router.navigate(['/login'])
+    }
+
+    restoreSession() {
+        const userJson = localStorage.getItem('user')
+        if (!userJson) {
             return
         }
+        const user: Auth = JSON.parse(userJson);
+        this.isLogged$.next(user);
     }
 
-    private isJwt(token: string): boolean {
-        return token.split('.').length === 3;
+    private autoLogout(user: Auth) {
+        const userExp = this.jwtHelper.getTokenExpirationDate(user.accessToken) as Date;
+        const expTime = userExp.getTime() - new Date().getTime();
+        this.timeout = setTimeout(() => {
+            this.logout();
+        }, expTime)
     }
 
-    private hasToken(): boolean {
-        const token = this.getLoginData?.accessToken;
-        if (!token) {
-            return false;
+    getCurrentUserId(): string | null {
+        const userJson = localStorage.getItem('user');
+        console.log('User JSON from localStorage:', userJson);
+
+        if (userJson) {
+            const user = JSON.parse(userJson);
+            console.log('User ID from parsed JSON:', user.user.id);
+            return user.user.id;
         }
-        try {
-            const isExpired = this.jwtSrv.isTokenExpired(token);
-            return !isExpired;
-        } catch (error) {
-            console.error("Error checking token expiration: ", error);
-            return false;
-        }
+
+        return null;
     }
 
-    private get getLoginData(): LoginData | null {
-        const ls = JSON.parse(localStorage.getItem("user")!) as LoginData | null;
-        return ls ? ls : null;
-    }
-
-    verifyLogin() {
-        const data = this.getLoginData;
-        if (data) {
-            const isExpired = this.jwtSrv.isTokenExpired(data.accessToken)
-            this.isLogged$.next(!isExpired)
-        } else {
-            this.isLogged$.next(false)
-        }
-    }
 }

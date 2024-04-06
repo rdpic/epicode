@@ -1,36 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
+import { Genres } from '../models/genres.interface';
+import { Movie } from '../models/movie.interface';
+import { Favorite } from '../models/favorite.interface';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class MovieService {
 
-	private moviesUrl = 'http://localhost:3000/movies-popular';
+	private moviesUrl = environment.srvr;
 
 	constructor(private http: HttpClient) { }
 
-	getAllMovies(): Observable<any[]> {
-		return this.http.get<any[]>(this.moviesUrl);
+	getAllMovies(): Observable<Movie[]> {
+		return this.http.get<Movie[]>(`${this.moviesUrl}movies-popular`);
 	}
 
-	getMovieById(id: number): Observable<any> {
-		const url = `${this.moviesUrl}/${id}`;
-		return this.http.get<any>(url);
+	getMovieById(id: number): Observable<Movie> {
+		const url = `${this.moviesUrl}movies-popular/${id}`;
+		return this.http.get<Movie>(url);
 	}
 
-	addFavorite(userId: number, movieId: number): Observable<any> {
-		return this.http.post('http://localhost:3000/favorites', { userId, movieId });
+	getAllGenres(): Observable<Genres[]> {
+		return this.http.get<Genres[]>(`${this.moviesUrl}genres`);
 	}
-	  
+
+	addFavorite(userId: string, movieId: number): Observable<Favorite> {
+		const url = `${this.moviesUrl}favorites`;
+		return this.http.post<Favorite>(url, { userId, movieId });
+	}
+
 	removeFavorite(favoriteId: number): Observable<any> {
-		const url = `http://localhost:3000/favorites/${favoriteId}`;
+		const url = `${this.moviesUrl}favorites/${favoriteId}`;
 		return this.http.delete(url);
 	}
 
-	getAllFavorites(userId: number): Observable<any[]> {
-		return this.http.get<any[]>(`http://localhost:3000/favorites?userId=${userId}`);
+	getAllFavorites(userId: string): Observable<Favorite[]> {
+		const url = `${this.moviesUrl}favorites?userId=${userId}`;
+		return this.http.get<Favorite[]>(url);
 	}
 
 }

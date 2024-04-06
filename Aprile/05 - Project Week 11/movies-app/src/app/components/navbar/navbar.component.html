@@ -2,11 +2,14 @@
     <div class="container">
         <h1>AngularMovies</h1>
         <nav>
-            <a routerLink="/movies-list">Movies</a>
-            <a *ngIf="isLoggedIn" routerLink="/favorites">Favorites</a>
-            <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
-            <a *ngIf="!isLoggedIn" routerLink="/register">Register</a>
-            <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
-        </nav>
+            <ul>
+              <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+              <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
+              <li *ngIf="isLoggedIn"><a routerLink="/movies-list">Movies</a></li>
+              <li *ngIf="isLoggedIn"><a routerLink="/favorites">My Favorites</a></li>
+              <li *ngIf="isLoggedIn"><a routerLink="/users-list">Users</a></li>
+              <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+            </ul>
+          </nav>
     </div>
 </header>

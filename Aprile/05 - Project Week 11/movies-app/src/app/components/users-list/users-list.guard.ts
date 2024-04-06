@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class UsersListGuard implements CanActivate {
-    isLogged: boolean = false;
-
-    constructor(private authSrv: AuthService, private router: Router) {
-        this.authSrv.loggedStatus.subscribe(status => this.isLogged = status);
-    }
     
-    canActivate(): boolean {
-        if (!this.isLogged) this.router.navigateByUrl("/login")
+    constructor(private authSrv: AuthService, private router: Router) {}
 
-        return this.isLogged;
+    async canActivate(): Promise<boolean> {
+        const isLogged = await firstValueFrom(this.authSrv.currentUser);
+        if (!isLogged) {
+            this.router.navigate(['/login']);
+            return false;
+        }
+        return true;
     }
 }
